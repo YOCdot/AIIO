@@ -1,0 +1,39 @@
+@font-face {
+  font-family: SmileySans;
+  src: url("/src/assets/SmileySans-Oblique.ttf");
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+  font-family: SmileySans;
+  color: white;
+
+  background: url(/src/assets/bg-image.jpg) no-repeat center center fixed;
+  background-size: cover;
+
+}
+
+.banner {
+  margin: 100px auto;
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+.greetings {
+  font-size: 20px;
+  margin: 30px auto;
+  color: white;
+  text-align: center;
+}
+
+.hr {
+
+}
+
+#app {
+  height: 100%;
+}
