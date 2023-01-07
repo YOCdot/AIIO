@@ -1,0 +1,39 @@
+# 全局
+.idea/
+.vscode/
+__pycache__/
+.vscode/
+.DS_Store
+
+# 后端
+/backend/api/detections/onnx_ptw/
+/backend/media/
+/backend/api/migrations/
+/backend/db.sqlite3
+
+
+# 前端
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+/frontend/node_modules/
+/frontend/dist/
+/frontend/dist-ssr/
+/frontend/coverage/
+/frontend/*.local
+
+/frontend/cypress/videos/
+/frontend/cypress/screenshots/
+
+# Editor directories and files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
