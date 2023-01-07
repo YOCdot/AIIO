@@ -1,0 +1,15 @@
+# 后端
+pymysql
+django
+djangorestframework
+django-filter
+djangorestframework-jwt
+# `coreapi` 无 `osx-arm64` 版本
+
+# 数据
+numpy
+onnx
+onnxruntime
+opencv-python
+torch
+torchvision
