@@ -1,4 +1,4 @@
-<p align="center"><a href="https://iyoc.xyz/" target="_blank" rel="noopener noreferrer"><img width="200" src="public/black-logo-lowres.png" alt="AIIO logo"></a></p>
+<p align="center"><a href="https://iyoc.xyz/" target="_blank" rel="noopener noreferrer"><img width="200" src="assets/white-logo-hires.png" alt="AIIO logo"></a></p>
 
 <h1 align="center">可以在线目标检测的个人网站</h1>
 
