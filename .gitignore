@@ -6,7 +6,7 @@ __pycache__/
 .DS_Store
 
 # 后端
-/backend/api/detections/onnx_ptw/
+/backend/api/detection/onnx_ptw/
 /backend/media/
 /backend/api/migrations/
 /backend/db.sqlite3
