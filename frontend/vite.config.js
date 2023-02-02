@@ -13,14 +13,21 @@ export default defineConfig({
   },
   // 代理配置
   server: {
-    proxy: {
-      "/apis": {
-        target: "http://127.0.0.1:8000/apis", //目标url
-        changeOrigin: true, //支持跨域
-        rewrite: (path) => path.replace(/^\/apis/, ""),
-        //重写路径,替换/api
-      },
-    },
+    // 跨域解决
+    // proxy: {
+    //   "/api": {
+    //     target: "http://127.0.0.1:8000/api", // api目标url
+    //     changeOrigin: true, //支持跨域
+    //     rewrite: (path) => path.replace(/^\/api/, ""),
+    //     // 重写路径, 替换/api
+    //   },
+    //   "/media": {
+    //     target: "http://127.0.0.1:8000/media", // media目标url
+    //     changeOrigin: true, //支持跨域
+    //     rewrite: (path) => path.replace(/^\/media/, ""),
+    //     // 重写路径, 替换 `/media`
+    //   },
+    // },
     host: "0.0.0.0",
   },
 });

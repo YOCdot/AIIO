@@ -8,30 +8,29 @@ html, body {
   height: 100%;
   width: 100%;
 
-  font-family: SmileySans;
-  color: white;
+  font-family: SmileySans, serif;
 
-  background: url(/src/assets/bg-image.jpg) no-repeat center center fixed;
-  background-size: cover;
+  /*color: rgb(240, 240, 240);*/
+  /*background-color: rgb(18, 18, 18);*/
+  background-color: lightgray;
+
+  /*background: url(/src/assets/bg-image.svg) no-repeat center center fixed;*/
+  /*background-size: cover;*/
 
 }
 
 .banner {
   margin: 100px auto;
   font-size: 50px;
-  color: white;
+  /*color: white;*/
   text-align: center;
 }
 
 .greetings {
   font-size: 20px;
   margin: 30px auto;
-  color: white;
+  /*color: white;*/
   text-align: center;
-}
-
-.hr {
-
 }
 
 #app {

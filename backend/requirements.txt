@@ -1,15 +1,17 @@
 # 后端
 pymysql
-django
-djangorestframework
+django~=4.1.5
+djangorestframework~=3.14.0
 django-filter
-djangorestframework-jwt
+# djangorestframework-simplejwt
+django-cors-headers
 # `coreapi` 无 `osx-arm64` 版本
 
 # 数据
-numpy
-onnx
-onnxruntime
-opencv-python
-torch
-torchvision
+numpy~=1.24.1
+onnx~=1.13.0
+onnxruntime~=1.13.1
+opencv-python~=4.7.0.68
+torch~=1.13.1
+torchvision~=0.14.1
+pyjwt

@@ -10,6 +10,7 @@ __pycache__/
 /backend/media/
 /backend/api/migrations/
 /backend/db.sqlite3
+/backend/backend/config.json
 
 
 # 前端

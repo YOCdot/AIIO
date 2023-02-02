@@ -11,22 +11,20 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter, DefaultRouter
 
-from . import views
+
+import api.views as views
 
 
 urlpatterns = [
 
-    # """ 使用路由实例进行代替 """
-
-    # path("books/", views.BookInfoModelViewSet.as_view({"get": "list",
-    #                                                    "post": "create"})),
-    # path("books/<int:pk>/", views.BookInfoModelViewSet.as_view({"get": "retrieve",
-    #                                                             "put": "update",
-    #                                                             "delete": "destroy"})),
-    # path("books/bread/gt/", views.BookInfoModelViewSet.as_view({"get": "bread_books"})),
-    # path("books/bread/<int:pk>/", views.BookInfoModelViewSet.as_view({"put": "bread_update"})),
-
     path("test/", views.TestView.as_view()),
+
+    path("access-token/", views.AccessToken.as_view()),  # 登陆并获取 `token`
+    path("api-test/", views.ApiTest.as_view()),
+    path("login-test/", views.LoginTest.as_view()),
+
+    path("admin-login/", views.admin.AdminLogin.as_view()),
+
 ]
 
 # 1. 创建路由对象

@@ -10,9 +10,13 @@ const routes = [
     component: () => import("@/components/PersonalLinks.vue"),
   },
   {
-    path: "/object-detections",
+    path: "/object-detection",
     // name: "object-detections",
     component: () => import("@/components/ObjectDetection.vue"),
+  },
+  {
+    path: "/admin-login",
+    component: () => import("@/components/AdminLogin.vue"),
   },
   {
     path: "/com-test",
