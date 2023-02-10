@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import "@/styles/PersonalLinks.css";
+// import "@/styles/PersonalLinks.css";
 
 import {ref} from "vue";
 import {getLinks} from "@/api";

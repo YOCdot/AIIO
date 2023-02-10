@@ -12,7 +12,7 @@
         </h1>
         <h1 class="text-5xl font-bold fill-current">Object Detection, Online!</h1>
         <p class="py-6 text-current">Two original designed models are available.</p>
-        <button class="btn bg-primary text-lg hover:mirror" @click="switchBtn += 1">DETECT ONLINE</button>
+        <button class="btn bg-primary text-lg hover:bg-base-100 hover:text-primary" @click="switchBtn += 1">DETECT ONLINE</button>
       </div>
     </div>
   </div>

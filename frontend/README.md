@@ -33,3 +33,7 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## 部署
+
+[Vite Official](https://cn.vitejs.dev/guide/static-deploy.html)
