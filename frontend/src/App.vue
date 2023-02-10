@@ -15,7 +15,8 @@ getApp().then(result => {
 <template>
 
   <!--  导航条: 开始  -->
-  <div class="backdrop-blur-md navbar text-white" style="position: fixed;">
+<!--  <div class="backdrop-blur-md navbar text-white" style="position: fixed;">-->
+  <div class="backdrop-blur-md navbar text-white">
 
     <div class="navbar-start">
       <div class="dropdown">
