@@ -12,7 +12,9 @@
         </h1>
         <h1 class="text-5xl font-bold fill-current">Object Detection, Online!</h1>
         <p class="py-6 text-current">Two original designed models are available.</p>
-        <button class="btn bg-primary text-lg hover:bg-base-100 hover:text-primary" @click="switchBtn += 1">DETECT ONLINE</button>
+        <button class="btn bg-primary text-lg hover:bg-base-100 hover:text-primary" @click="switchBtn += 1">DETECT
+          ONLINE
+        </button>
       </div>
     </div>
   </div>
@@ -55,13 +57,14 @@
               Notice
             </h3>
             <div class="text-lg font-bold mt-3 mb-10 text-warning">
-<!--              <p>Due to the asynchronism of JavaScript and how bad I've used it,</p>-->
-<!--              <p>The image may not show up correctly.</p>-->
+              <!--              <p>Due to the asynchronism of JavaScript and how bad I've used it,</p>-->
+              <!--              <p>The image may not show up correctly.</p>-->
               <p>If the image didn't show up correctly, </p>
               <p class="inline-block">please hit that </p>
               <p class="text-base-100 rounded-md inline-block bg-primary mx-1 px-2">LOAD</p>
               <p class="inline-block"> button for several more times.</p>
-              <p class="inline-block text-white mt-5">PS: I'll recommend you to  use image with its size smaller than (1000*1000).</p>
+              <p class="inline-block text-white mt-5">PS: I'll recommend you to use image with its size smaller than
+                (1000*1000).</p>
             </div>
             <div class="modal-action">
               <label for="my-modal" class="btn bg-success text-base-100" @click="getImgDisplay">OK</label>
@@ -71,27 +74,35 @@
 
 
         <!--  提示信息  -->
-<!--        <div class="my-10">-->
-<!--          <div v-if="doneLoad !== 0" class="text-4xl font-bold text-info">-->
-<!--            Image INFO:-->
-<!--          </div>-->
-<!--          <div v-if="doneLoad !== 0" class="text-lg font-bold mt-3 text-accent">-->
-<!--            Image Size: {{ "(" + height + "*" + width + ")" }}-->
-<!--          </div>-->
-<!--        </div>-->
+        <!--        <div class="my-10">-->
+        <!--          <div v-if="doneLoad !== 0" class="text-4xl font-bold text-info">-->
+        <!--            Image INFO:-->
+        <!--          </div>-->
+        <!--          <div v-if="doneLoad !== 0" class="text-lg font-bold mt-3 text-accent">-->
+        <!--            Image Size: {{ "(" + height + "*" + width + ")" }}-->
+        <!--          </div>-->
+        <!--        </div>-->
 
         <div class="mt-8">
           <div v-if="detStatus === 1" class="text-lg font-bold mt-3 text-warning">
-            Detecting...
+            <svg class="animate-spin mb-0.5 h-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Detecting, please wait...
+            <p>It should be done in 10s.</p>
+            <p>2-virtual-core cloud-based CPU 🥲</p>
           </div>
           <div v-if="detStatus === 2" class="text-lg font-bold mt-3 text-error">
             Detected, {{ time_cost }}s spent.
           </div>
         </div>
 
-
         <!--  CANVAS  -->
-        <canvas v-if="doneLoad !== 0" id="canvas" class="bg-neutral rounded-lg fill-current mt-8 max-w-screen-2xl max-h-screen" :width=width
+        <canvas v-if="doneLoad !== 0" id="canvas"
+                class="bg-neutral rounded-lg fill-current mt-8 max-w-screen-2xl max-h-screen" :width=width
                 :height=height>
         </canvas>
 
@@ -193,10 +204,10 @@ function drawRects(data) {
   for (let idx in predictions) { // 绘制图形
     // console.log(idx, predictions[idx]);
 
-    ctx.fillStyle="red";
+    ctx.fillStyle = "red";
     ctx.font = "18px SmileySans"
-    ctx.fillStyle="#FF0000";
-    ctx.fillText(idx,predictions[idx][0], predictions[idx][1] - 4);
+    ctx.fillStyle = "#FF0000";
+    ctx.fillText(idx, predictions[idx][0], predictions[idx][1] - 4);
 
     //  - 绘制矩形: fillRect(位置x, 位置y, 宽度, 高度)
     ctx.strokeStyle = "#FF0000";

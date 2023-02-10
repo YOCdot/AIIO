@@ -4,8 +4,8 @@ export function apiRequest(config) {
 
     // axios 实例
     let instance = axios.create({
-        baseURL: "http://localhost:8000/api",
-        timeout: 5000,
+        baseURL: "/api",
+        timeout: 300000, // 5min
     });
 
     // 发送真正的请求

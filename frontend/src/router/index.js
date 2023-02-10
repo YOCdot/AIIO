@@ -11,13 +11,13 @@ const routes = [
     },
     {
         path: "/object-detection",
-        // component: () => import("@/components/ObjectDetection.vue"),
-        components: {
-            default: () => import("@/components/ObjectDetection/index.vue"),
-        },
-        props: {
-            default: true,
-        }
+        component: () => import("@/components/ObjectDetection.vue"),
+        // components: {
+        //     default: () => import("@/components/index.vue"),
+        // },
+        // props: {
+        //     default: true,
+        // }
     },
     {
         path: "/admin-login",
