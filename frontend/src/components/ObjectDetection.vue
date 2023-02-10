@@ -20,10 +20,11 @@
   </div>
 
 
-  <div v-if="switchBtn === 1" class="hero min-h-screen max-h-full max-w-full bg-black">
-    <div class="hero-content text-center">
+  <div v-if="switchBtn === 1" class="hero min-h-screen max-h-full max-w-full bg-[url('@/assets/images/detection.png')]">
+    <div class="hero-overlay backdrop-blur-lg"></div>
+    <div class="hero-content text-center ">
 
-      <div class="">
+      <div>
         <div class="text-5xl font-bold p-0 text-base-100">Two pre-trained models available:</div>
 
         <!--  选择模型  -->
@@ -79,15 +80,6 @@
 
 
         <!--  提示信息  -->
-        <!--        <div class="my-10">-->
-        <!--          <div v-if="doneLoad !== 0" class="text-4xl font-bold text-info">-->
-        <!--            Image INFO:-->
-        <!--          </div>-->
-        <!--          <div v-if="doneLoad !== 0" class="text-lg font-bold mt-3 text-accent">-->
-        <!--            Image Size: {{ "(" + height + "*" + width + ")" }}-->
-        <!--          </div>-->
-        <!--        </div>-->
-
         <div class="mt-8">
           <div v-if="detStatus === 1" class="text-lg font-bold mt-3 text-warning">
             <svg class="animate-spin mb-0.5 h-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -106,7 +98,7 @@
 
         <!--  CANVAS  -->
         <canvas v-if="doneLoad !== 0 && sizeCheck" id="canvas"
-                class="bg-neutral rounded-lg fill-current mt-8 max-w-screen-2xl max-h-screen" :width=width
+                class="bg-neutral rounded-lg fill-current mt-8 max-w-2xl max-h-max" :width=width
                 :height=height>
         </canvas>
 
@@ -121,6 +113,7 @@
 
 <script setup>
 import {ref} from "vue";
+import {postDetection} from "@/api";
 import illusImg from "@/assets/images/detection.png";
 // var imgSrc = ref("src/assets/images/example-dog.jpg");
 
@@ -129,11 +122,24 @@ let model = ref("fpdt");
 var doneLoad = ref(0);
 
 var styleAct = "basis-1/2 p-3 mx-12 text-2xl text-white bg-primary hover:bg-primary hover:text-base-100 rounded-box"
-var styleDeact = "basis-1/2 p-3 mx-12 text-2xl bg-neutral text-black hover:bg-primary hover:text-base-100 rounded-box"
+var styleDeact = "basis-1/2 p-3 mx-12 text-2xl bg-neutral text-base-100 hover:bg-primary hover:text-base-100 rounded-box"
 
 
-function changeModel() {
-  // console.log(model.value);
+var detStatus = ref(0);
+var time_cost = ref(0);
+var pred_obj = ref(null);
+
+
+// 图片
+var imgSrc = ref(undefined);
+var height = ref(undefined);
+var width = ref(undefined);
+
+
+var sizeCheck = ref(1);
+
+
+function changeModel() { // 切换模型
   if (model.value === "fpdt") {
     model.value = "tssd";
   } else if (model.value === "tssd") {
@@ -143,41 +149,19 @@ function changeModel() {
   }
 }
 
-// 图片
-var imgSrc = ref(undefined);
-var height = ref(undefined);
-var width = ref(undefined);
-
-// 上传
-function imgUpload(event) {
-  //e.target指向事件执行时鼠标所点击区域的那个元素，那么为input的标签，
+function imgUpload(event) { // 上传
+  // e.target指向事件执行时鼠标所点击区域的那个元素，那么为input的标签，
   // 可以输出 e.target.files 看看，这个files对象保存着选中的所有的图片的信息。
-  // console.log(event.target.files);
   let file = event.target.files[0];
-  // console.log(file.type);
 
-
-  //  创建一个FileReader()对象，它里面有个readAsDataURL方法
-  var reader = new FileReader();
-  // readAsDataURL方法可以将上传的图片格式转为base64,然后在存入到图片路径,
-  //这样就可以上传电脑任意位置的图片
-  reader.readAsDataURL(file);
-
-  /*当读取操作成功完成时调用*/
-  reader.onload = function () {
+  let reader = new FileReader(); // 创建FileReader()对象，它里面有个readAsDataURL方法
+  reader.readAsDataURL(file); // 该方法可以将上传的图片格式转为base64, 然后在存入到图片路径,这样就可以上传电脑任意位置的图片
+  reader.onload = function () { // 当读取操作成功完成时调用
     // console.log(reader.readyState);
-
-    // console.log(e); //查看对象
-    // console.log(this.result);//要的数据 这里的this指向FileReader（）对象的实例reader
-
+    // console.log(this.result); //要的数据 这里的this指向FileReader（）对象的实例reader
     imgSrc.value = this.result;
-
   }
-
-
 }
-
-var sizeCheck = ref(1);
 
 function getImgDisplay() {
 
@@ -191,11 +175,7 @@ function getImgDisplay() {
     sizeCheck.value = 0;
   }
 
-  // console.log(height.value, width.value);
-
   let ctx = document.getElementById('canvas').getContext('2d');
-
-  // img.src = "src/assets/images/example-dog.jpg";
 
   img.onload = function () {
     ctx.drawImage(img, 0, 0);
@@ -226,12 +206,6 @@ function drawRects(data) {
   }
 }
 
-
-import {postDetection} from "@/api";
-
-var detStatus = ref(0);
-var time_cost = ref(0);
-var pred_obj = ref(null);
 
 function postImage() {
   detStatus.value = 1;
