@@ -30,7 +30,6 @@
 </template>
 
 <script setup>
-
 import {ref} from "vue";
 import {postLogin} from "@/api";
 // import PersonalLinks from "@/components/PersonalLinks.vue";
@@ -53,11 +52,3 @@ function postItems() {
 }
 
 </script>
-
-<style scoped>
-.login-bg {
-  background-color: #fffa;
-  backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-}
-</style>

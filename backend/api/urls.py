@@ -23,6 +23,8 @@ urlpatterns = [
     path("api-test/", views.ApiTest.as_view()),
     path("login-test/", views.LoginTest.as_view()),
 
+    path("detection/", views.ObjectDetection.as_view()),
+
     path("admin-login/", views.admin.AdminLogin.as_view()),
 
 ]

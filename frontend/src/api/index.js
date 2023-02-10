@@ -21,3 +21,11 @@ export function postLogin(data) {
         data: data
     })
 }
+
+export function postDetection(data) {
+    return apiRequest({
+        url: "/detection/",
+        method: "post",
+        data: data
+    })
+}

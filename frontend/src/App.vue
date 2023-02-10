@@ -1,6 +1,5 @@
 <script setup>
-import logo from "@/assets/black-logo-hires.png";
-import github_icon from "@/assets/github.svg";
+import favicon from "/src/assets/icons/favicon.png";
 
 import {RouterLink, RouterView} from "vue-router";
 
@@ -14,141 +13,158 @@ getApp().then(result => {
 </script>
 
 <template>
+
   <!--  导航条: 开始  -->
-  <header class="p-3 header-custom" style="margin-bottom: 200px">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+  <div class="backdrop-blur-md navbar text-white" style="position: fixed;">
 
-        <router-link class="d-flex align-items-center mb-2 mb-lg-0 text-black text-decoration-none" height="32" role="img" to="/">
-          <img :src=logo alt="AIIO" height="60">
-        </router-link>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" style="font-size: 30px">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+               stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+          </svg>
+        </label>
+        <ul tabindex="0"
+            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
           <li>
-            <router-link class="nav-link px-2 text-secondary text-black" to="object-detection" style="margin: 0 20px">
-              目标检测
+            <router-link to="object-detection">
+              Object Detection
             </router-link>
           </li>
           <li>
-            <router-link class="nav-link px-2 text-secondary text-black" to="personal-links">
-              个人链接
-            </router-link>
+            <!--              <router-link to="personal-links">-->
+            <!--                个人链接-->
+            <!--              </router-link>-->
+            <a>
+              Coming soon...
+            </a>
           </li>
         </ul>
-
-<!--        <div class="text-end"></div>-->
       </div>
+      <router-link class="w-20 content-center"
+                   role="img" to="/">
+        <img :src=favicon alt="avatar" style="height: 100%">
+      </router-link>
     </div>
-  </header>
 
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal">
+        <li class="rounded-2xl hover:bg-primary active:bg-gray-700">
+          <!--  目标检测  -->
+          <router-link to="object-detection">
+            <svg class="w-24 fill-current" viewBox="0 0 1120 534" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 xml:space="preserve"
+                 style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g><g id="文字" transform="matrix(0.919561,0,0,1,-46.7656,0)"><text x="532.236px" y="435.298px" style="font-family:'SmileySans-Oblique', 'Smiley Sans';font-style:italic;font-size:450.886px;">AIIO</text></g><path
+                id="底框"
+                d="M1093.33,50.667c0,-13.246 -11.949,-24 -26.666,-24l-1013.33,-0c-14.717,-0 -26.666,10.754 -26.666,24l-0,432c-0,13.246 11.949,24 26.666,24l1013.33,-0c14.717,-0 26.666,-10.754 26.666,-24l0,-432Zm-26.666,20.286c-0,-11.196 -10.1,-20.286 -22.541,-20.286l-621.586,-0c-12.44,-0 -22.54,9.09 -22.54,20.286l-0,391.427c-0,11.197 10.1,20.287 22.54,20.287l621.586,-0c12.441,-0 22.541,-9.09 22.541,-20.287l-0,-391.427Zm-813.334,25.158l0,-22.778c0,-11.038 -8.961,-20 -20,-20l-160,0c-11.038,0 -20,8.962 -20,20l0,253.334c0,11.038 8.962,20 20,20l29.477,-0l0,113.333c0,11.038 8.962,20 20,20l160,-0c11.039,-0 20,-8.962 20,-20l0,-70.556l50.523,0c11.039,0 20,-8.961 20,-20l0,-253.333c0,-11.038 -8.961,-20 -20,-20l-100,-0Zm-80,250.556l-43.856,-0l0,92c0,8.094 6.572,14.666 14.667,14.666l117.333,0c8.095,0 14.667,-6.572 14.667,-14.666l-0,-49.223l-82.811,0c-11.038,0 -20,-8.961 -20,-20l0,-22.777Zm80,-133.334l0,113.334c0,11.038 -8.961,20 -20,20l-33.333,-0l0,1.444c0,8.095 6.572,14.667 14.667,14.667l61.477,-0l-0,-134.778c-0,-8.095 -6.572,-14.667 -14.667,-14.667l-8.144,0Zm0,-90.555l0,63.889l29.477,-0c11.039,-0 20,8.961 20,20l0,156.111l29.19,-0c8.095,-0 14.667,-6.572 14.667,-14.667l-0,-210.667c-0,-8.095 -6.572,-14.666 -14.667,-14.666l-78.667,-0Zm-150.523,197.222l0,-113.333c0,-11.039 8.962,-20 20,-20l50.523,-0l0,-70.556c0,-11.038 8.962,-20 20,-20l33.334,-0l-0,-1.444c-0,-8.095 -6.572,-14.667 -14.667,-14.667l-117.333,-0c-8.095,-0 -14.667,6.572 -14.667,14.667l0,210.666c0,8.095 6.572,14.667 14.667,14.667l8.143,-0Zm70.523,-106.667l-29.189,0c-8.095,0 -14.667,6.572 -14.667,14.667l0,92l43.856,-0l0,-106.667Zm53.334,0l-26.667,0l0,106.667l12,-0c8.095,-0 14.667,-6.572 14.667,-14.667l-0,-92Zm-0,-90.555l-12,-0c-8.095,-0 -14.667,6.571 -14.667,14.666l0,49.223l26.667,-0l-0,-63.889Z"/></g></svg>
+            <p class="text-xl text-current">Object Detection</p>
+          </router-link>
+        </li>
+        <li class="rounded-xl">
+          <a>Others coming soon..</a>
+          <!--            <router-link to="personal-links" class="text-2xl">-->
+          <!--              个人链接-->
+          <!--            </router-link>-->
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-end hidden lg:flex">
+      <!--  工程介绍  -->
+      <div class="text-right">
+        <div class="flex-col mr-3">
+          <div class="flex text-xs">
+            Powered by:
+            <a href="https://vuejs.org/" target="_blank" class="mx-1">
+              <img class="w-4 h-4 inline-block" alt="vue" src="/src/assets/vue.png"/>
+            </a>
+            &
+            <a href="https://www.djangoproject.com/" target="_blank" class="mx-1">
+              <img class="w-10 inline-block" alt="dj"
+                   src="https://www.djangoproject.com/m/img/logos/django-logo-negative.svg"/>
+            </a>
+          </div>
+          <div class="flex text-xs mt-0.5">Source code can be aquired at</div>
+        </div>
+      </div>
+      <!--  工程仓库  -->
+      <a href="https://github.com/YOCdot/AIIO" class="btn btn-ghost hover:bg-white hover:text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-white">
+          <path
+              d="M12,.28A12,12,0,0,0,8.28,23.69l.28,0a1,1,0,0,0,.7-.24,1.05,1.05,0,0,0,.36-.82v-.21c0-.17,0-.4,0-1.09A.49.49,0,0,0,9.43,21a.5.5,0,0,0-.41-.1c-2.69.58-3.26-1.1-3.29-1.21A4.64,4.64,0,0,0,4,17.5l-.15-.11a.73.73,0,0,1,.38-.07,1.48,1.48,0,0,1,1.14.88,3,3,0,0,0,4,1.16A.53.53,0,0,0,9.67,19a2,2,0,0,1,.56-1.22.5.5,0,0,0,.15-.53.49.49,0,0,0-.42-.35c-2.37-.27-4.8-1.1-4.8-5.19A4,4,0,0,1,6.22,8.93a.49.49,0,0,0,.09-.52A3.56,3.56,0,0,1,6.32,6,5.57,5.57,0,0,1,8.84,7.15a.48.48,0,0,0,.42.06A10.66,10.66,0,0,1,12,6.85a10.31,10.31,0,0,1,2.75.36.46.46,0,0,0,.41-.06A5.53,5.53,0,0,1,17.68,6a3.54,3.54,0,0,1,0,2.38.48.48,0,0,0,.1.52,4,4,0,0,1,1.05,2.75c0,4.1-2.43,4.92-4.81,5.18a.49.49,0,0,0-.42.35.49.49,0,0,0,.15.52,2.23,2.23,0,0,1,.61,1.75v3.18a1.06,1.06,0,0,0,.37.82,1.18,1.18,0,0,0,1.06.19A12,12,0,0,0,12,.28Z"></path>
+        </svg>
+      </a>
+    </div>
+
+  </div>
   <!--  导航条: 结束  -->
+
 
   <!--  路由页面: 开始  -->
   <router-view></router-view>
   <!-- 路由页面: 结束 -->
 
+
   <!--  页脚: 开始  -->
-  <footer class="card-foot footer navbar-custom" style="margin-top: 200px">
-
-    <div class="container text-center">
-
-      <div class="self-introduce">
-
-        <div>我是 yoc 🫡 ！</div>
-        <div >这是我的个人主页，同时也是我的Playground！</div>
-        <div>
-          是一名在读的人工智能研究生，研究方向是：目标检测算法，业余兴趣是学习各种计算机技术。
+  <footer class="footer footer-center p-10 bg-black text-white">
+    <div class="grid grid-flow-col gap-4">
+      <a class="link link-hover">
+        <div class="ml-2">
+          <router-link to="admin-login">
+            <img :src=favicon alt="favicon" class="w-28 h-28">
+          </router-link>
         </div>
-        <div>
-          © This project is powered by
-          <a>
-            <img class="tech-img" alt="vue" src="/src/assets/vue.png"/>
-          </a>
-          &
-          <a>
-            <img class="tech-img" alt="dj" src="https://www.djangoproject.com/m/img/logos/django-logo-negative.svg"/>
-          </a>
-          , implemented by yoc.
-        </div>
+      </a>
 
+      <a>
+        <div class="flex flex-col m-1">
+          <p class="text-4xl text-left py-2">@yoc</p>
+          <p class="text-left">Currently a post-graduate student, majoring in AI.</p>
+          <p class="text-left">Research field: object detection algorithm based-on Transformers.</p>
+          <p class="text-left">This is my personal website, also, my playground.</p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- 个人链接 -->
+    <div>
+      <div class="grid grid-flow-col gap-4">
+        <a href="https://github.com/YOCdot" target="_blank" class="hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+            <path
+                d="M12,.28A12,12,0,0,0,8.28,23.69l.28,0a1,1,0,0,0,.7-.24,1.05,1.05,0,0,0,.36-.82v-.21c0-.17,0-.4,0-1.09A.49.49,0,0,0,9.43,21a.5.5,0,0,0-.41-.1c-2.69.58-3.26-1.1-3.29-1.21A4.64,4.64,0,0,0,4,17.5l-.15-.11a.73.73,0,0,1,.38-.07,1.48,1.48,0,0,1,1.14.88,3,3,0,0,0,4,1.16A.53.53,0,0,0,9.67,19a2,2,0,0,1,.56-1.22.5.5,0,0,0,.15-.53.49.49,0,0,0-.42-.35c-2.37-.27-4.8-1.1-4.8-5.19A4,4,0,0,1,6.22,8.93a.49.49,0,0,0,.09-.52A3.56,3.56,0,0,1,6.32,6,5.57,5.57,0,0,1,8.84,7.15a.48.48,0,0,0,.42.06A10.66,10.66,0,0,1,12,6.85a10.31,10.31,0,0,1,2.75.36.46.46,0,0,0,.41-.06A5.53,5.53,0,0,1,17.68,6a3.54,3.54,0,0,1,0,2.38.48.48,0,0,0,.1.52,4,4,0,0,1,1.05,2.75c0,4.1-2.43,4.92-4.81,5.18a.49.49,0,0,0-.42.35.49.49,0,0,0,.15.52,2.23,2.23,0,0,1,.61,1.75v3.18a1.06,1.06,0,0,0,.37.82,1.18,1.18,0,0,0,1.06.19A12,12,0,0,0,12,.28Z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/yoc717/" target="_blank" class="hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1000 1000" xml:space="preserve"
+               width="25" class="fill-current"><g><path d="M500,990c270.6,0,490-219.4,490-490S770.6,10,500,10S10,229.4,10,500S229.4,990,500,990z M356,374.5c94.2,47.6,173.8,44.8,173.8,44.8s-30.2-105.2,63.1-151.8c93.3-46.6,157.5,32,157.5,32s16.3-4.5,28.4-8.9c12.1-4.5,29.7-12.4,29.7-12.4l-28.7,51.3l44.3-4.7c0,0-5.5,8-23.2,24.2c-17.7,16.2-25,24.6-25,24.6s6.3,126.6-60.4,224.1S562.6,753.7,437.4,766s-206.7-38.4-206.7-38.4s54.7-3.1,89.6-16.5c34.9-13.3,85.1-48.5,85.1-48.5s-71.3-22-97-46.6c-25.6-24.7-32-39.3-32-39.3l70.4-0.9c0,0-74.1-39.3-95.1-70.4c-21-31.1-23.8-61.3-23.8-61.3l54.1,21.9c0,0-45-61.2-51.4-108.8c-6.4-47.6,8.2-73.2,8.2-73.2S261.8,326.9,356,374.5z"/></g></svg>
+        </a>
+        <a href="https://weibo.com/u/2707953287" target="_blank" class="hover:text-primary">
+          <svg width="27" viewBox="0 40 1024 1024" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+            <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-44.4 672C353.1 736 236 680.4 236 588.9c0-47.8 30.2-103.1 82.3-155.3 69.5-69.6 150.6-101.4 181.1-70.8 13.5 13.5 14.8 36.8 6.1 64.6-4.5 14 13.1 6.3 13.1 6.3 56.2-23.6 105.2-25 123.1.7 9.6 13.7 8.6 32.8-.2 55.1-4.1 10.2 1.3 11.8 9 14.1 31.7 9.8 66.9 33.6 66.9 75.5.2 69.5-99.7 156.9-249.8 156.9zm207.3-290.8a34.9 34.9 0 0 0-7.2-34.1 34.68 34.68 0 0 0-33.1-10.7 18.24 18.24 0 0 1-7.6-35.7c24.1-5.1 50.1 2.3 67.7 21.9 17.7 19.6 22.4 46.3 14.9 69.8a18.13 18.13 0 0 1-22.9 11.7 18.18 18.18 0 0 1-11.8-22.9zm106 34.3s0 .1 0 0a21.1 21.1 0 0 1-26.6 13.7 21.19 21.19 0 0 1-13.6-26.7c11-34.2 4-73.2-21.7-101.8a104.04 104.04 0 0 0-98.9-32.1 21.14 21.14 0 0 1-25.1-16.3 21.07 21.07 0 0 1 16.2-25.1c49.4-10.5 102.8 4.8 139.1 45.1 36.3 40.2 46.1 95.1 30.6 143.2zm-334.5 6.1c-91.4 9-160.7 65.1-154.7 125.2 5.9 60.1 84.8 101.5 176.2 92.5 91.4-9.1 160.7-65.1 154.7-125.3-5.9-60.1-84.8-101.5-176.2-92.4zm80.2 141.7c-18.7 42.3-72.3 64.8-117.8 50.1-43.9-14.2-62.5-57.7-43.3-96.8 18.9-38.4 68-60.1 111.5-48.8 45 11.7 68 54.2 49.6 95.5zm-93-32.2c-14.2-5.9-32.4.2-41.2 13.9-8.8 13.8-4.7 30.2 9.3 36.6 14.3 6.5 33.2.3 42-13.8 8.8-14.3 4.2-30.6-10.1-36.7zm34.9-14.5c-5.4-2.2-12.2.5-15.4 5.8-3.1 5.4-1.4 11.5 4.1 13.8 5.5 2.3 12.6-.3 15.8-5.8 3-5.6 1-11.8-4.5-13.8z"/>
+          </svg>
+        </a>
+        <a href="https://space.bilibili.com/2703022" target="_blank" class="hover:text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 105 800 800" height="24" class="fill-current">
+            <path
+                d="M711.7824 385.706667H317.860978c-11.963733 0-22.038756 9.12384-22.038756 21.379982v261.158684c0 12.255004 10.073884 21.251413 22.038756 21.251414h393.921422c11.964871 0 20.946489-8.995271 20.946489-21.251414V407.086649c0-12.25728-8.983893-21.379982-20.946489-21.379982z m-367.101724 96.493795l111.015253-21.255964 8.388835 41.665422-109.899093 21.253689-9.504995-41.663147z m171.137706 126.95552c-34.116267 37.19168-69.907342-11.744142-69.907342-11.744142l18.176-11.744142s24.327964 43.902293 51.453724-14.262045c26.006187 56.486116 54.809031 14.821831 54.809032 15.099449l16.500053 10.62912c-0.002276-0.003413-30.762098 49.212302-71.031467 12.02176z m164.706987-85.291235l-110.176711-21.251414 8.669866-41.66656 110.73536 21.255965-9.228515 41.662009z"></path>
+            <path
+                d="M512 115.456c-219.005156 0-396.544 177.539982-396.544 396.542862 0 219.005156 177.539982 396.545138 396.544 396.545138S908.544 731.004018 908.544 512c0-219.005156-177.538844-396.544-396.544-396.544z m208.828871 626.904178c-27.71968-0.877227-37.05856 0-37.05856 0s-2.042311 31.806578-29.177173 32.38912c-27.428409 0.291271-31.514169-22.177564-32.391396-30.63808-16.630898 0-216.512284 0.873813-216.512284 0.873813s-3.500942 29.47072-30.63808 29.47072c-27.428409 0-28.889316-24.511147-30.63808-29.47072-17.801671 0-41.729138-0.584818-41.729138-0.584818s-60.109938-12.541724-67.987911-90.744604c0.874951-78.201742 0-232.8576 0-232.8576s-5.544391-72.071396 66.239147-92.790329c22.173013-0.873813 70.03136-1.16736 125.471857-1.16736l-51.065742-49.605973s-7.877973-9.921422 5.544391-21.009067c13.717049-11.086507 14.296178-6.568391 18.966756-3.35872 4.66944 3.208533 76.160569 73.672249 76.160569 73.672249h-9.629014c27.427271 0 55.732907 0.444871 82.868907 0.444871 10.502827-10.505102 70.322631-69.082453 74.407253-71.99744 4.668302-2.9184 5.542116-7.841564 18.967894 3.244942 13.422364 11.087644 5.543253 21.028409 5.543253 21.028409l-49.898382 48.155307c68.572729 0.584818 121.387236 0.878364 121.387235 0.878364s67.694364 14.885547 69.446543 92.500196c-0.874951 77.6192 0.291271 233.732551 0.291271 233.732551s-3.7888 75.867022-68.569316 87.834169z"></path>
+          </svg>
+        </a>
       </div>
+    </div>
 
-      <hr>
-
-      <div class="container text-center">
-        <div class="row">
-          <div class="col align-self-start">
-            <router-link class="footer-item" to="admin-login">
-              功能测试
-            </router-link>
-          </div>
-          <div class="col align-self-center">
-            <a class="footer-item" href="https://beian.miit.gov.cn/" target="_blank">
-              沪ICP备2022008973号-1
-            </a>
-          </div>
-          <div class="col align-self-end">
-            <a class="footer-item" href="https://github.com/YOCdot" target="_blank">
-              <img
-                  :src="github_icon"
-                  alt="logo"
-                  style="height: 18px"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <!--  备案   -->
+    <div>
+      <p><a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-primary hover:underline">沪ICP备2022008973号-1</a>
+      </p>
     </div>
   </footer>
   <!--  页脚: 结束  -->
-
 </template>
 
-<style scoped>
-
-
-.header-custom {
-  /*height: 80px;*/
-  background-color: #fffa;
-  backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-}
-
-.navbar-item {
-  font-size: 28px;
-  margin-left: 20px;
-}
-
-
-.self-introduce {
-  font-size: 15px;
-  /*color: gray;*/
-  /*padding-bottom: 130px;*/
-}
-
-.tech-img {
-  height: 18px;
-}
-
-.footer {
-  height: 185px;
-  float: bottom;
-  padding: 20px 0 20px 0;
-  background-color: #fffa;
-  backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(180%);
-}
-
-.copy-right {
-  margin-top: 50px;
-}
-
-.footer-item {
-  font-size: 15px;
-  /*display: inline-block;*/
-  text-align: center;
-  color: black;
-  text-decoration: none;
-}
-</style>
+<style scoped></style>

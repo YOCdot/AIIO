@@ -18,7 +18,7 @@ import torch
 import torchvision
 import torchvision.transforms as T
 
-from .cat_mapping import coco2017_mapping
+from api.detection.cat_mapping import coco2017_mapping
 
 
 class Normalize(object):
@@ -160,6 +160,6 @@ class ONNXModel:
 
 
 if __name__ == '__main__':
-    model = ONNXModel(name='fpdt', scale='tiny', path_url="./onnx_ptw")
-    out_dict = model.inference(input_url="./dog-test.jpg")
-    # print(len(out_dict), out_dict)
+    model = ONNXModel(name='fpdt', scale='tiny', path_url="/Users/iyoc/ProjectFiles/WebDev/AIIO/backend/api/detection/onnx_ptw")
+    out_dict = model.inference(input_url="/Users/iyoc/ProjectFiles/WebDev/AIIO/backend/img.jpeg")
+    print(len(out_dict), out_dict)
