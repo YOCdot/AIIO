@@ -98,7 +98,7 @@
 
         <!--  CANVAS  -->
         <canvas v-if="doneLoad !== 0 && sizeCheck" id="canvas"
-                class="bg-neutral rounded-lg fill-current mt-8 max-w-2xl max-h-max" :width=width
+                class="bg-neutral rounded-lg fill-current mt-8 max-w-2xl max-h-max min-w-lg min-h-min" :width=width
                 :height=height>
         </canvas>
 
